@@ -9,7 +9,6 @@ function extractValue(arr, key) {
     let temp = arr.reduce(function (accum, nextValue) {
         return accum.concat(nextValue[key]);
     }, []);
-    console.log(temp);
     return temp;
 }
 //done
@@ -28,9 +27,9 @@ function vowelCount(str) {
     let vowels = 'aeiou';
     const obj = {};
     return str.split('').reduce(function (accum, nextStr) {
-        if (obj[nextStr] == undefined && vowels.indexOf(nextStr) !== -1) obj[nextStr] = 0;
-        if (vowels.indexOf(nextStr) !== -1) {
-            obj[nextStr] += 1;
+        if (obj[nextStr.toLowerCase()] == undefined && vowels.indexOf(nextStr.toLowerCase()) !== -1) obj[nextStr.toLowerCase()] = 0;
+        if (vowels.indexOf(nextStr.toLowerCase()) !== -1) {
+            obj[nextStr.toLowerCase()] += 1;
         }
         return obj;
     }, str.split('')[0]);
@@ -53,7 +52,7 @@ Examples:
 */
 
 function addKeyAndValue(arr, key, value) {
-    return arr.reduce(function (accum, nextValue) {
+    return arr.reduce((accum, nextValue) => {
         nextValue[key] = value;
         return arr;
     }, arr[0]);
